@@ -1,0 +1,76 @@
+
+{%extends 'base.html'%}
+{%load static%}
+    <h1 class="text-center text-secondary">Movie List</h1> 
+
+
+
+{%block main_block%}
+<h1 class="text-center text-secondary ">Movie List</h1> 
+<div class="container">
+  <form class="d-flex" role="search" action="{%url 'movie-list'%}">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="filter" list="records" >
+    <datalist id="records">
+      {%for r in records%}
+      <option value="{{r}}"></option>
+      {%endfor%}
+    </datalist>
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  <ul class="navbar-nav mb-1 mb-lg-0">
+    <li>
+      <a href="{%url 'logout'%}" class="btn btn-outline-success ">{{request.user}}Logout</a>
+    </li>
+  </ul>
+ 
+  <div class="row">
+      {%for m in data%}
+      <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            {%if m.picture%}
+            <img src="{{m.picture.url}}" class="card-img-top" alt="...">
+
+            {%endif%}
+              <div class="card-body">
+                <h5 class="card-title">title:{{m.title}}</h5>
+                <p class="card-text">genre:{{m.genre}}.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{m.actor}}</li>
+                <li class="list-group-item">{{m.director}}</li>
+                <li class="list-group-item">{{m.language}}</li>
+              </ul>
+              <div class="card-body">
+                <a href="{%url 'movie-details' m.id%}" class="card-link">Detailview</a>
+                <a href="{%url 'movie-delete' m.id%}" class="card-link">delete</a>
+                <a href="{%url 'movie-update' m.id%}" class="card-link">update</a>
+              </div>
+            </div>
+
+
+
+
+
+      </div>
+
+
+
+
+      {%endfor%}
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+</div>
+{%endblock%}

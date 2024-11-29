@@ -1,0 +1,136 @@
+
+create-virtualenv env_nme(virtualenv venv)
+
+list-pip list
+
+install-pip  install django pillow djangorestframework
+
+project start cheyyan-django-admin startproject projectname(django-admin startproject greetings)
+
+switch cheyyan-cd grretings(cd-change directort)
+
+then vscode open-code .
+
+
+
+
+
+http_re
+-------
+url:
+method:
+body:
+headers:
+
+
+
+
+
+
+
+http methods:
+--------
+GET-read
+POST-create
+PUT/PATCH-update
+DELETE-delete
+
+
+
+
+
+
+
+
+
+
+
+
+client-sever artchitecture:
+---------------------------
+client nn oru req server lekk send cheyym avdann process cheyym then server  client lekk response send cheyyum
+
+                    
+                                        request
+                        client--------------------------------->server
+                              <---------------------------------                                     
+                                         response
+
+
+
+
+
+
+
+status-code                              
+--------
+2xx:success
+4xx:client side error
+5xx:server side error
+1xx:informational
+
+
+
+django artchitecture(mvt architecture)
+----------------
+
+                       client
+                          |
+                          |
+                          |
+                         urls
+                          | 
+                          |mappiing
+                          |
+                        views
+
+      templates                  
+                        
+                        models
+
+django-admin startproject project_name
+server run cheyyan-python manage.py runserver
+oru app create aakan-python manage.py startapp app_name(eg:python manage.py startapp myapp)
+
+
+
+case notations:
+PascalCase-(classname)
+snakecase-(function,method)
+
+
+myapp>views.py
+
+
+import:
+
+                    django
+                      |
+                      |
+                    views
+                      |
+                      |
+                    generics
+                      |
+                      |
+                    classView
+                  class templateView
+
+
+
+    path:from django.views.generics from View
+
+    from django.views.generics from TemplateView 
+                        OR
+     from django.views.generics from View,TemplateView
+
+****************************************************
+                                                    *
+myapp>views.py                                      *
+djangoViews:                                        *
+--------------                                      *
+1)functionbased view                                *
+2)classbased view                                   *
+                                                    *
+above eg:from django.view.generic import View       *
+class ViewName(View):                               *

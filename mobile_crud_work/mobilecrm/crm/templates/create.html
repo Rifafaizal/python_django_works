@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block main_block%}
+    <div class="container border border-5 shadow p-4 mt-4">
+        <div>
+        <img src="{%static 'images/add.png'%}" alt="" width="100px" height="100px">
+        </div>
+        <h1 class="text-center fw-bold">Mobile Add</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {%for f in form%}
+            <div>
+               
+               {{f.label_tag}}
+               {{f}}
+            </div>
+            {%endfor%}
+            <button type="submit">add</button>
+
+
+        </form>
+
+
+
+    </div>
+    {%endblock%}

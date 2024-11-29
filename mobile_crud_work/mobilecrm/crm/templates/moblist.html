@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block main_block%}
+
+    <div class="container">
+        <div>
+            <a href="{%url 'mobile-add'%}" class="btn btn-outline-success">AddNewMobile</a>
+        </div>
+       <h1 class="text-center">Mobile List</h1>
+        <div class="row me-3 p-5 ms-4">
+       
+        {%for m in data%}
+        <div class="card ms-4" style="width: 18rem;">
+
+            {%if m.picture%}
+            <img src="{{m.picture.url}}" class="card-img-top" alt="...">
+            {%endif%}
+
+            <div class="card-body">
+              <h5 class="card-title">{{m.name}}</h5>
+              <p class="card-text">{{m.brand}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{m.storage}}</li>
+              <li class="list-group-item">{{m.price}}</li>
+              <li class="list-group-item">{{m.colour}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="{%url 'mobile-detail' m.id%}" class="card-link">DetailView</a>
+              <a href="{%url 'mobile-delete' m.id%}" class="card-link">delete</a>
+              <a href="{%url 'mobile-update' m.id%}" class="card-link">update</a>
+            </div>
+          </div>
+
+     
+        {%endfor%}
+    </div>
+
+
+
+    </div>
+    {%endblock%}

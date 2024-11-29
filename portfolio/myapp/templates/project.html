@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>projects</h1>
+    {%for p in projects%}
+    <ol>
+        <li>title:{{p.title}}</li>
+        <li>description:{{p.description}}</li>
+        <li>front_end:{{p.front_end}}</li>
+        <li>back_end:{{p.back_end}}</li>
+
+
+
+
+    </ol>
+   
+{%endfor%}
+
+
+
+
+
+
+
+    <!-- <h1>project</h1>
+    <h3>Title:{{title}}
+    </h3>
+    <h3>Framework:{{framework}}</h3>
+    <h3>Database:{{database}}</h3>
+    <h3>Mail:{{mail}}</h3> -->
+    
+</body>
+</html>

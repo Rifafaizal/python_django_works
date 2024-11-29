@@ -1,0 +1,272 @@
+from crm.models import Employee
+
+python manage.py makemigrations-for generate
+python manage.py migrate-execute
+
+
+-----------------------------------------------------------------------------
+
+class Employee(models.Model):
+    name=models.CharField(max_length=100)
+    age=models.PositiveIntegerField()
+    gender=models.CharField(max_length=100)
+    department=models.CharField(max_length=200)
+    mobile=models.CharField(max_length=12)
+    salary=models.PositiveIntegerField()
+    address=models.TextField()
+    qualification=models.CharField(max_length=200,null=True)
+---------------------------------------------------------------------------------
+#orm query for creating resource
+
+Modelname.objects.create(field=value,field2=value2)
+
+
+
+employee.objects.create(
+                            name="rifa",
+                            age=21,
+                            gender="female",
+                            department="IT",
+                            mobile="samsung",
+                            salary=50000
+                            address="calicut"
+                            qualification="bca"
+                        )
+
+-------------------------------------------------------------------------------------------
+
+#orm queerie for fetching all records
+
+>qs(query set)=Modelname.objects.all()
+qs=employee.objects.all()
+        
+ ---------------------------------------------------------------------------------------- 
+
+
+in shell cntrl+^z enter kodthal ath clear avm
+
+shell-python manage.py shell 
+
+-----------------------------------------------------------------------
+
+>1 mathram edkkan  .orm query for fetching a specific record
+qs=modelname.objects.get(id=1)
+qs=Employee.objects.get(id=1)
+
+---------------------------------------------------------------------------
+
+#fetch male employees
+qs=modelname.objects.Filter(gender=male)
+qs=Employee.objects.Filter(gender=male)
+
+----------------------------------------------------------------------------------
+
+def __str__(self):
+return self.name - ingana kodkkmbol ammal kodkkne condition n anusarich lle names print aakum
+
+----------------------------------------------------------------------------------------------------
+
+in django greater than less than those are not working.
+so wevare used
+#field lookups
+< (__lt)
+> (__gt)
+< (__lte)
+> (__gte)
+ithokke filter l kodkknm
+
+------------------------------------------------------------------------------------------
+not qual to case=exclude
+qs=Employee.objects.all().exclude(department="IT")
+
+------------------------------------------------------------------
+
+.filter employee whose salary >35000 and department !=hr
+qs=Employee.objects.filter(salary__gt=35000).exclude(department=hr)
+
+--------------------------------------------------------------------
+
+orm query for updating employees
+modelname.objects.filter(field=value).update(field=value,field=value)
+update cheyymbo filter only use
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+orm query for deleting a record
+delete cheyymbo filter and get use aakam
+Employee.objects.get(field=value).delete()
+
+
+
+
+
+
+
+------------------------------------------------
+
+
+CRUD queries:
+
+create
+read(get,all,filter)
+update
+delete
+
+-----------------------------------------------------------------------
+
+read operationsnte case lan qs=  kodkkndiye(query set)
+order_by=sort cheyyan
+
+
+
+---------------------------------------------------------------------
+
+
+>query startswith letter a employee  nte name
+    qs=Employee.objects.filter(name__startswith="m")
+
+
+--------------------------------------------------------------------
+
+
+
+>Employee with highest salary
+aggregate function
+from django.db.models import Sum,Min,Max,Avg,Count
+
+>fetch employee departments only
+ qs=Employee.objects.all().values("department")
+
+
+
+>no duplication(not repeated)
+   qs=Employee.objects.all().values("department").distinct()
+
+
+#aggregatefunctionte use cheyymbo import cheyynm
+  eg:from django.db.models import Sum
+
+
+>salary select cheythit max salary orint cheyyan
+  qs=Employee.objects.all().values("salary").aggregate(Max("salary"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+question) Django Database Table Creation Question:
+
+You are tasked with creating a movie database in Django. The movie model should have the following fields:
+
+- id (Integer Field, Primary Key)
+- title (String Field)
+- genre (String Field)
+- runtime (Integer Field representing the duration in minutes)
+- language (String Field)
+- year (Integer Field representing the release year)
+- director (String Field)
+
+Instructions:
+
+1. Write the steps required to create the Django model for the Movie table with the specified fields.
+2. How will you apply the changes to the database after creating the model?
+3. Write the code for the Django model.
+4. Mention how you would query all movies directed by a specific director.
+
+
+answer):
+model.py
+
+class Movie(models.Model):
+
+        title=models.CharField(max_length=200)
+        genre=models.CharField(max_length=100)
+        runtime=models.PositiveIntegerField()
+        language=models.CharField(max_length=100)
+        year=models.PositiveIntegerField()
+        director=models.CharField(max_length=100)
+        def __str__(self):
+            return self.title
+
+
+>orm query for craeting a new movie
+   Movie.objects.create(title="brodaddy",genre="romantic",runtime=11,language="malayalam",year=2021,director="fahad")
+
+
+>orm query for fetching all movies
+    qs=Movie.objects.all()
+
+
+>queery for fetching movie with id=1
+    qs=Movie.objects.get(id=1)
+
+
+
+>query for fetching malayalm movies
+    qs=Movie.objects.filter(language="malayalam")
+
+
+>query for malayalam movies with runtime>140
+    qs=Movie.objects.filter(language="malayalam",runtime__gt=140) 
+
+
+
+>query startswith letter a movie nte title
+    qs=>query startswith letter a movie title
+    qs=Movie.objects.filter(title__startswith="m")
+
+
+
+>query inbetween  an
+    qs=Movie.objects.filter(name__contains="an")
+
+
+
+>icontaims -kodthalm kodthilellm uppercase print aakm.icontains kodthal upper print aakum
+ qs=Movie.objects.filter(name__icontains="an")
+
+
+
+ 
+
+
+
+
+>icontaims -kodthalm kodthilellm uppercase print aakm.icontains kodthal upper print aakum
+>query startswith letter a movie nte title
+>query inbetween  an
+>query for malayalam movies with runtime>140
+>queery for fetching movie with id=1
+>query for fetching malayalm movies
+>orm query for fetching all movies
+>orm query for craeting a new movie
+>salary select cheythit max salary orint cheyyan
+>no duplication(not repeated)
+>fetch employee departments only
+>Employee with highest salary
+>query startswith letter a employee  nte name
+
+
+
+

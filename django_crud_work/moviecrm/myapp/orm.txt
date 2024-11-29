@@ -1,0 +1,29 @@
+
+>icontaims -kodthalm kodthilellm uppercase print aakm.icontains kodthal upper print aakum
+>query startswith letter a movie nte title
+>query inbetween  an
+>query for malayalam movies with runtime>140
+>queery for fetching movie with id=1
+>query for fetching malayalm movies
+>orm query for fetching all movies
+>orm query for craeting a new movie
+>salary select cheythit max salary orint cheyyan
+>no duplication(not repeated)
+>fetch employee departments only
+>Employee with highest salary
+>query startswith letter a employee  nte name
+
+
+
+
+
+
+
+
+
+
+
+
+ Movie.objects.all()
+
+ 

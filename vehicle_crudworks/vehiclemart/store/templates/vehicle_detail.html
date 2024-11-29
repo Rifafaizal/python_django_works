@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+    {%block main_block%}
+    <div class="container">
+        {%if data.picture%}
+        <div class="container p-5 ">
+            <div class="card shadow text-black" style="width: 18rem;">
+                <img src="{{data.picture.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">{{data.name}}</h5>
+                  <p class="card-text fst-italic ">{{data.description}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item fst-italic">{{data.fuel_type}}</li>
+                  <li class="list-group-item fst-italic">{{data.color}}</li>
+                  <li class="list-group-item fst-italic">{{data.brand}}</li>
+                </ul>
+                <!-- <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div> -->
+              </div>
+
+        </div>
+        {%endif%}
+        <!-- <ul>
+
+        <li>{{data.name}}</li>
+        <li>{{data.running_km}}</li>
+        <li>{{data.color}}</li>
+        <li>{{data.price}}</li>
+        <li>{{data.brand}}</li>
+        <li>{{data.description}}</li>
+        <li>{{data.varient}}</li>
+        <li>{{data.picture}}</li>
+    </ul>
+
+    </div> -->
+
+    {%endblock%}
+<!-- </body>
+</html> -->
